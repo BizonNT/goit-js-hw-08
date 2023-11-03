@@ -12,7 +12,6 @@ const dataForm = {
   email: form.email.value,
   message: form.message.value,
 };
-  console.log(dataForm);
 
 function onInput(event) {
   fillForm(event);
