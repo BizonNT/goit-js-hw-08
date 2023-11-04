@@ -29,7 +29,7 @@ function fillForm(event) {
 
 function onSubmit(event) {
   event.preventDefault();
-  formBtn = event.currentTarget;
+  const formBtn = event.currentTarget;
   if (formBtn.email.value === '' || formBtn.message.value === '') {
     alert('Fill the empty Input field');
     return;
