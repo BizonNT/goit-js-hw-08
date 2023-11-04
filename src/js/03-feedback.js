@@ -19,18 +19,24 @@ function onInput(event) {
 }
 
 function fillForm(event) {
-  const forms = event.target;
-  if (forms.name === 'email') {
-    dataForm.email = forms.value.trim();
-  } else if (forms.name === 'message') {
-    dataForm.message = forms.value.trim();
+  const inputForm = event.target;
+  if (inputForm.name === 'email') {
+    dataForm.email = inputForm.value.trim();
+  } else if (inputForm.name === 'message') {
+    dataForm.message = inputForm.value.trim();
   }
 }
 
 function onSubmit(event) {
   event.preventDefault();
-  localStorage.removeItem('feedback-form-state');
-  event.currentTarget.email.value = '';
-  event.currentTarget.message.value = '';
-  console.log(dataForm);
+  formBtn = event.currentTarget;
+  if (formBtn.email.value === '' || formBtn.message.value === '') {
+    alert('Fill the empty Input field');
+    return;
+  } else {
+    console.log(dataForm);
+    localStorage.removeItem('feedback-form-state');
+    formBtn.email.value = '';
+    formBtn.message.value = '';
+  }
 }
